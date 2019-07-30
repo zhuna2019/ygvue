@@ -1,0 +1,53 @@
+/* 顶部工具栏左侧 */
+.header>.topTool>.t_left{
+    font-size:14px;
+    color:#666;
+}
+.header>.topTool>.t_left a{
+    color:#666;
+    text-decoration: none;
+}
+.header>.topTool>.t_left input{
+   width:180px !important;
+   color:rgb(10, 156, 161) !important;
+}
+/* 顶部工具栏右侧 */
+.header>.topTool>.t_right>ul a{
+   color:#666;
+   font-size:14px;
+   margin-left:10px;
+    text-align: right;
+}
+.header>.topHead{
+    width:1280px;
+    height:90px;
+  
+  
+}
+
+.header>.topHead>.log{
+    width:100px;
+    height:100px;
+  
+    
+}
+.header>.topHead>.search>input{
+   width:80%;
+   border:1px solid rgb(233, 83, 14);
+   /* margin-top:30px; */
+   
+}
+.header>.topHead>.search>span{
+   
+    padding:4px 10px;
+    background:rgb(233, 83, 14);
+    line-height: 10px;
+    text-align: center;
+    color:#fff;
+}
+.header>.topHead>.cart{
+    width:100px;
+    height:50px;
+    /* margin-top:30px; */
+   
+}
