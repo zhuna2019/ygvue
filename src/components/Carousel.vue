@@ -1,14 +1,14 @@
 <template>
-  <div class="container">
+
        <!-- 轮播图 -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="img/index/ad1.jpg" alt="First slide">
+            <img class="d-block w-100" src="../../public/imgs/img/index/ad2.jpg" alt="First slide">
           </div>
           
           <div class="carousel-item">
-            <img class="d-block w-100" src="img/index/ad4.jpg" alt="4th slide">
+            <img class="d-block w-100" src="../../public/imgs/img/index/ad3.jpg" alt="4th slide">
           </div>
         </div>
          <!-- 轮播指示器 -->
@@ -31,7 +31,7 @@
         <div id="sideBar">
                 <div class="dropdown">
                    <div class="dropdown-toggle" @click="dropdown">全部商品分类</div>
-                    <ul class="dropdown-menu" v-bind:class="{'show':isA}">
+                    <ul class="dropdown-menu" :class="phoneClass">
                       <li class="">
                           <span class="iconfont icon-yingtao mx-2"></span>
                           进口水果                       
@@ -82,14 +82,14 @@
          </div>
     
     </div>
-  </div>
+
 </template>
 <style scoped>
   
   *{margin:0px;padding:0px;}
 #carouselExampleIndicators{
     width:100%;
-    height:500px;
+    height:100%;
     position: relative;
 }
  ul.carousel-indicators>li{
@@ -131,7 +131,9 @@
       height:460px;
       position:absolute;
       top:40px;
-      background:rgba(255,255,255,.3);
+      background:rgba(20, 20, 20, 0.8);
+      color:#fff;
+      
   }
 </style>
 
@@ -139,19 +141,18 @@
 export default {
    data(){
        return{     
-           isA:true
+          phoneClass:{show:true}
            }
    },
    methods:{
     dropdown(){
-        if(this.isA==true){
-            this.isA=false;
+        if(this.phoneClass.show==true){
+            this.phoneClass.show=false;
         }else{
-             this.isA=true;
+             this.phoneClass.show=true;
         }
-    }
-    
-   
+    } 
+   }  
 }
 
 

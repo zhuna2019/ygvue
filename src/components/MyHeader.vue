@@ -14,7 +14,7 @@
                                             <div class="form-group">
                                                 <div style="position: relative;">
                                                     
-                                                        <input id="city-picker3" class="form-control" readonly type="text" value="溧阳市" data-toggle="city-picker">
+                                                        <input id="city-picker3" class="form-control " readonly type="text" value="溧阳市" data-toggle="city-picker">
                                                    
                                                 </div>
                                             </div>
@@ -24,7 +24,7 @@
                         </div>
                     </li>
                     <li class="nav-item float-left">
-                        <img src="public/images/喇叭.png" alt="">
+                        <img src="../../public/imgs/喇叭.png" alt="">
                         <span><a href="javascript:;">网警提醒</a></span>
                     </li>
                 </ul>
@@ -79,8 +79,9 @@
     text-decoration: none;
 }
 .header>.topTool>.t_left input{
-   width:180px !important;
+   width:110px !important;
    color:rgb(10, 156, 161) !important;
+ 
 }
 /* 顶部工具栏右侧 */
 .header>.topTool>.t_right>ul a{
@@ -89,37 +90,41 @@
    margin-left:10px;
     text-align: right;
 }
+
 .header>.topHead{
     width:1280px;
     height:90px;
-  
-  
+    margin-bottom:50px;
+    
+   
 }
-
 .header>.topHead>.log{
-    width:100px;
-    height:100px;
-  
+    width:50px;
+    height:50px;
+     margin:-40px 0px;
     
 }
 .header>.topHead>.search>input{
-   width:80%;
+   width:70%;
    border:1px solid rgb(233, 83, 14);
-   /* margin-top:30px; */
+   padding-left:10px;
+   font-size:12px;
+   
    
 }
 .header>.topHead>.search>span{
    
-    padding:4px 10px;
+    padding:3px 15px;
     background:rgb(233, 83, 14);
     line-height: 10px;
     text-align: center;
     color:#fff;
+    font-size:12px;
 }
 .header>.topHead>.cart{
     width:100px;
     height:50px;
-    /* margin-top:30px; */
+  
    
 }
 </style>
