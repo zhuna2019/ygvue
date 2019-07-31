@@ -3,11 +3,13 @@
         <my-header></my-header>
         
        <main id="main" class="container">
-          <carousel/>
-         
+           <carousel/> 
+           <floor :tasks="result"/> 
+           <floor/> 
+           
          
        </main>
-
+     
 
 
 
@@ -19,16 +21,27 @@
 <script>
 // 引入轮播子件到首页父件
 import Carousel from "../components/Carousel"
+// 引入楼层子组件到首页父组件
+import Floor from "../components/Index/Floor"
 export default {
     data(){
-        return{}
+        return{
+            //将result.data数组保存到data当中供模板显示
+           result:[],
+           
+        }
     },
-   components:{Carousel},
+   components:{
+       Carousel,
+       Floor,
+   
+   },
     created(){
    this.axios.get(//异步: mounted才不会等ajax请求回来！
-      "http://localhost:5050/index"
+      "http://localhost:8083/index"
     ).then(result=>{
-    
+          console.log(result.data);
+          this.result=result.data;
     })
   },
   

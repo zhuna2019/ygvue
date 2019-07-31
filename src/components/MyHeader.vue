@@ -1,9 +1,9 @@
 <template>
     <div class="header">
         <!-- 顶部工具栏 -->
-        <div class="topTool row">
+        <div class="topTool ">
             <!-- 工具栏左侧 -->
-            <div class="col-5 t_left">
+            <div class=" t_left">
                 <ul class="nav ">
                     <li class="nav-item float-left mr-2">欢迎光临阳光生鲜！</li>
                     <li class="nav-item float-left mr-1">
@@ -30,16 +30,16 @@
                 </ul>
             </div>
             <!-- 工具栏右侧 -->
-            <div class="col-7 t_right ">
+            <div class=" t_right ">
                 <ul class="nav">
-                    <li><a href="">登录</a></li>
-                    <li><a href="">注册</a></li>
-                    <li><a href="">我的易果</a>
+                    <li class="nav-item"><a href="">登录</a></li>
+                    <li class="nav-item"><a href="">注册</a></li>
+                    <li class="nav-item"><a href="">我的易果</a>
                         <ul class="d-none">
                             <li>我的订单</li>
                         </ul>
                     </li>
-                    <li><a href="">手机易果</a>
+                    <li class="nav-item"><a href="">手机易果</a>
                         <div>
                             <img src="" alt="">
                         </div>
@@ -47,10 +47,10 @@
                                 <img src="" alt="">
                             </div>
                     </li>
-                    <li><a href="">礼品绑定</a></li>
-                    <li><a href="">礼品兑换券入口</a></li>
-                    <li><a href="">营业资质</a></li>
-                    <li><a href="">人才招聘</a></li>
+                    <li class="nav-item"><a href="">礼品绑定</a></li>
+                    <li class="nav-item"><a href="">礼品兑换券入口</a></li>
+                    <li class="nav-item"><a href="">营业资质</a></li>
+                    <li class="nav-item"><a href="">人才招聘</a></li>
                 </ul>
             </div>
         </div>
@@ -70,6 +70,10 @@
 </template>
 <style scoped>
 /* 顶部工具栏左侧 */
+.header>.topTool{
+    display:flex;
+    justify-content: space-between;
+}
 .header>.topTool>.t_left{
     font-size:14px;
     color:#666;
