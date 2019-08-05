@@ -4,17 +4,11 @@
         
        <main id="main" class="container">
            <carousel/> 
-           <floor :tasks="result"/> 
-           <floor/> 
-           
-         
+           <floor v-for="(elem,i) of result" :key="i" :messages="elem"></floor>
+              
        </main>
-     
-
-
-
-        
-        <my-footer/>
+       <my-footer/>
+      
     </div>
 </template>
 
@@ -27,8 +21,7 @@ export default {
     data(){
         return{
             //将result.data数组保存到data当中供模板显示
-           result:[],
-           
+           result:[],   
         }
     },
    components:{
@@ -37,13 +30,15 @@ export default {
    
    },
     created(){
-   this.axios.get(//异步: mounted才不会等ajax请求回来！
-      "http://localhost:8083/index"
+   this.axios.get(
+      "http://localhost:5050/index"
     ).then(result=>{
-          console.log(result.data);
+        //   console.log(result.data);
           this.result=result.data;
+          console.log(this.result)
     })
   },
+
   
 }
 </script>

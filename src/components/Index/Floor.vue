@@ -1,60 +1,55 @@
 <template>
-<div>
-    <div class="step">
-            <div><img src="../../../public/imgs/img/index/1.png" alt=""></div>
-            <div class="title">F1进口水果</div>
+<div class="container rows">
+    <div class="left_step ">
+            <div class="title" >礼品礼券</div>
+            <div><img src="../../../public/imgs/img/index/gift_banner.png" alt=""></div>    
     </div>
-    <div class="flool">
-        
-        <div class="fl_left">
-            <img src="../../../public/imgs/img/index/9288735686894994.jpg" alt="">
+    <div class="flool ">
+        <!-- 面包屑导航 -->
+        <div>
+            <el-breadcrumb separator="|">
+              
+              <el-breadcrumb-item>礼卡礼券</el-breadcrumb-item>
+              <el-breadcrumb-item>节日礼盒</el-breadcrumb-item>
+              <el-breadcrumb-item>员工福利</el-breadcrumb-item>
+              <el-breadcrumb-item>商务赠礼</el-breadcrumb-item>
+              <el-breadcrumb-item>走亲访友</el-breadcrumb-item>
+              <el-breadcrumb-item>生日礼盒</el-breadcrumb-item>
+              <el-breadcrumb-item>伴手礼</el-breadcrumb-item>
+            </el-breadcrumb>
         </div>
-        <div class="fl_right">
-            <div class="fl_right_top">
-                <div><img src="../../../public/imgs/img/index/9288734314669428.jpg" alt=""></div>
-                <div><img src="../../../public/imgs/img/index/9288734314800500.jpg" alt=""></div>
-                <div><img src="../../../public/imgs/img/index/9288734315029876.jpg" alt=""></div>
-            </div>
-            <div class="fl_right_btm">
-                <div><img src="../../../public/imgs/img/index/9288734315292020.jpg" alt=""></div>
-                <div><img src="../../../public/imgs/img/index/9288734315390324.jpg" alt=""></div>
-                <div><img src="../../../public/imgs/img/index/9288734315652468.jpg" alt=""></div>
-            </div>
+        <!-- 商品列表 -->
+        <div>
+            <item></item>
         </div>
     </div>
 </div>
 </template>
 <script>
+// 1引入子组件
+import Item from "./Item"
 export default {
     data(){
-        return{
-           
-        }
+           return{}     
+    },
+    components:{
+              Item
     },
     // 定义自定义属性接收父元素传递数据的变量
-    props:["messages"],
-    
-    
+    props:[],
+    methods:{
+       
+    }
  
 }
 </script>
 <style scoped>
-.step{
-    width:100%;
-    height:40px;
+.rows{
     display:flex;
-    margin-bottom:20px;
-    line-height: 40px;
-    
 }
 .flool{
-    display:flex;
+    margin-left:30px;
 }
-.fl_right_top{
-      display:flex;
-  }
-.fl_right_btm{
-      display:flex;
-  }
+
 </style>
 
