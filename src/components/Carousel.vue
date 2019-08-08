@@ -93,8 +93,8 @@
     position: relative;
 }
  ul.carousel-indicators>li{
-    width:10px;
-    height:10px;
+    width:0.6rem;
+    height:0.6rem;
     border-radius: 50%;
     background-color:#fff;
 
@@ -103,33 +103,32 @@
       background-color:rgb(9, 195, 228);
   }
   #sideBar{
-      width:200px;
-      height:500px;
+      width:20rem;
       z-index: 3;
-      position: absolute;
-      top:0px;
+      position: absolute;;
+      top:0;
       left:15%;
   }
   #sideBar>.dropdown{
-    width:200px;
-    height:500px;
+    width:12.5rem;
+   
     position: relative;
   }
   #sideBar .dropdown-toggle{
       width:100%;
-      height:40px;
+      height:2.5rem;
       background:rgba(29, 194, 139, 0.877);
       color:rgba(22, 2, 2, 0.925);
-      line-height: 40px;
+      line-height:2.5rem;
       outline: none;
       text-align: center;
      
   }
   #sideBar .dropdown>ul.dropdown-menu{
-      width:200px;
-      height:460px;
+      width:12.5rem;
+      height:28rem;
       position:absolute;
-      top:40px;
+      top:2.3rem;
       background:rgba(161, 151, 161, 0.3);
       color:#fff;
       
