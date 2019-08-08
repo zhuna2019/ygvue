@@ -6,7 +6,7 @@
             <li>
                  <ul class="nav nav-tabs">
                    <li class="nav-item">
-                       <span class="iconfont icon-yingtao"></span>
+                    <span class="iconfont icon-yingtao"></span>
                     <a href="" class="nav-link">进口水果</a>
                    </li>
                  </ul>
@@ -14,7 +14,7 @@
             <li>
                  <ul class="nav nav-tabs">
                    <li class="nav-item">
-                       <span class="iconfont icon-yingtao"></span>
+                    <span class="iconfont icon-yingtao"></span>
                     <a href="" class="nav-link">进口水果</a>
                    </li>
                  </ul>

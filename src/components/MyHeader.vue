@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="header container">
         <!-- 顶部工具栏 -->
         <div class="topTool ">
             <!-- 工具栏左侧 -->
@@ -55,14 +55,14 @@
             </div>
         </div>
         <!-- 头部LOGO 搜索，购物车 -->
-        <div class="topHead row">
+        <div class="topHead">
             <div class="log col-3">
                 <img src="../../public/imgs/logo.jpg" alt="">
             </div>
-            <div class="search col-6">
+            <div class="search ">
                 <input type="text" placeholder="输入商品名"><span>搜索</span>
             </div>
-            <div class="cart col-3">
+            <div class="cart ">
                 <img src="../../public/imgs/cart.png" alt="">
             </div>
         </div>
@@ -96,20 +96,26 @@
 }
 
 .header>.topHead{
+    display: flex;
     width:1280px;
     height:90px;
-    margin-bottom:50px;
-    
-   
+ 
 }
 .header>.topHead>.log{
     width:50px;
     height:50px;
-     margin:-40px 0px;
+     
     
 }
+.header>.topHead>.search{
+    display:flex;
+    align-items: center;
+    width:650px;
+    height:30px;
+    text-align: center;
+}
 .header>.topHead>.search>input{
-   width:70%;
+    width:70%;
    border:1px solid rgb(233, 83, 14);
    padding-left:10px;
    font-size:12px;
@@ -118,7 +124,7 @@
 }
 .header>.topHead>.search>span{
    
-    padding:3px 15px;
+    padding:6px 15px;
     background:rgb(233, 83, 14);
     line-height: 10px;
     text-align: center;
@@ -126,8 +132,10 @@
     font-size:12px;
 }
 .header>.topHead>.cart{
+    margin-left:50px;
     width:100px;
     height:50px;
+    
   
    
 }

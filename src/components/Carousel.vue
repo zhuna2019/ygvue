@@ -105,7 +105,6 @@
   #sideBar{
       width:200px;
       height:500px;
-   
       z-index: 3;
       position: absolute;
       top:0px;
@@ -119,8 +118,8 @@
   #sideBar .dropdown-toggle{
       width:100%;
       height:40px;
-      background:rgb(3, 104, 62);
-      color:#fff;
+      background:rgba(29, 194, 139, 0.877);
+      color:rgba(22, 2, 2, 0.925);
       line-height: 40px;
       outline: none;
       text-align: center;
@@ -131,7 +130,7 @@
       height:460px;
       position:absolute;
       top:40px;
-      background:rgba(20, 20, 20, 0.8);
+      background:rgba(161, 151, 161, 0.3);
       color:#fff;
       
   }
