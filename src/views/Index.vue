@@ -4,7 +4,7 @@
         
        <main id="main" class="container">
            <carousel/> 
-           <floor v-for="(elem,i) of result" :key="i" :messages="elem"></floor>
+           <floor v-for="(item,i) of result" :key="i" :messages="result"></floor>
               
        </main>
        <my-footer/>

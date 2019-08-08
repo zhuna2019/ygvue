@@ -1,43 +1,49 @@
 <template>
-    <div  ...
-     class="publics">
+    <div  class="publics">
         <div class="pub_img">
-           <img src="http://127.0.0.1:5050/01.jpg">
+           <img :src="`http://127.0.0.1:5050/${item.img_url}`">
         </div>
         <div class="title">
-           心中最甜幸福礼赞礼盒1.296kg
-        </div>
-        <div>
-           ￥158
+           {{item.title}}
+        </div >
+        <div class="price">
+          ￥{{item.price}}
         </div>
     </div>
 </template>
 <script>
 export default {
-    
+    data(){return{}
+    },
+    props:["item"],
 }
 </script>
 <style scoped>
 .publics{
-  width:200px;
-  height:300px;
+  width:180px;
+  height:180px;
   text-align: center;
+  margin-top:20px;
+ 
 }
 .pub_img{
-    width:200px;
-    height:200px;
+    
     display:flex;
-    align-items: center;
+   
     
 }
 .pub_img>img{
     width:150px;
     height:150px;
-    margin:0 25px;
+    
 }
 .title{
     font-size:12px;
+    margin-right:50px;
     
+}
+.price{
+    margin-right:50px;
 }
 </style>
 
