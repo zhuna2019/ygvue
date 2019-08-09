@@ -2,6 +2,7 @@
     <div  class="publics">
         <div class="pub_img">
            <img :src="`http://127.0.0.1:5050/${item.img_url}`">
+           <img src="" alt="">
         </div>
         <div class="title">
            {{item.title}}
