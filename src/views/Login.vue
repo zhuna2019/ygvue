@@ -6,8 +6,35 @@
                  <img src="../../public/imgs/logo.jpg" alt="">
             </div>
             <div>
-               <h1 class="reg">注册</h1>
+               <h3 class="regtext">注册</h3>
             </div>
+         </div>
+         <!-- 注册区域 -->
+         <div class="reg">
+             <!--第一行 -->
+             <div class="row1">
+                 <div>图形验证码</div>
+                 <div><input type="text" placeholder="图形验证码"> </div>
+                 <div>abcd</div>
+                 <div>换一张</div>
+             </div>
+             <!--第二行 -->
+             <div class="row2">
+                 <div>用户名</div>
+                 <div><input type="text" placeholder="请输入用户名"> </div>
+             </div>
+             <!--第三行 -->
+             <div class="row3">
+                 <div>密码</div>
+                 <div><input type="password" placeholder="请输入密码"> </div>
+             </div>
+             <!--第四行 -->
+             <div class="row4">
+                 <div><input type="checkbox">我已阅读同意</div>
+                 <div><a href="">&lt;&lt;易果服务协议&gt;&gt; &nbsp;</a></div>
+                 <div><a href="">&lt;&lt;隐私政策&gt;&gt;</a></div>
+             </div>
+             <!--  -->
          </div>
     </div>
 </template>
@@ -17,11 +44,25 @@ export default {
 }
 </script>
 <style scoped>
+
 .header{
+    width:100%;
+    height:4rem;
+    background:#eee;
     display:flex;
+    margin-bottom:3rem;
 }
-.reg{
+.logo{
+    margin-top:1rem;
+}
+.regtext{
     color:rgb(39, 121, 46);
+    margin-left:10rem;
+    margin-top:1rem;
+}
+.row1,.row2,.row3,.row4{
+    display:flex;
+    margin-top:2rem;
 }
 </style>
 
