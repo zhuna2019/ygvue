@@ -4,7 +4,7 @@ import Index from './views/Index'
 import Details from './views/Details'
 import Floor from './components/Index/Floor'
 import Item from './components/Index/Item'
-import Login from './views/Login'
+import Regist from './views/Regist'
 
 Vue.use(Router)
 
@@ -14,6 +14,6 @@ export default new Router({
     {path:"/details", component:Details},
     {path:"/floor", component:Floor},
     {path:"/item", component:Item},
-    {path:"/login", component:Login},
+    {path:"/regist", component:Regist},
   ]
 })
