@@ -73,11 +73,13 @@ export default {
         var upwd=this.upwd;
         var user_name=this.user_name;
         var phone=this.phone
-        var obj= this.$qs.stringify({uname:uname,upwd:upwd,user_name:user_name,phone:phone})
-        console.log(obj)
+        var obj={uname,upwd,user_name,phone}
+        
         // 发送请求
-        this.axios.post(url,{data:obj}).then(result=>{
-            console.log(result)
+        this.axios.get(url,{params:obj}).then(result=>{
+           if(affectedRows>0){
+               this.$router.push("/login")
+           }
         })
       }
     },
