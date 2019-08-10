@@ -32,8 +32,8 @@
             <!-- 工具栏右侧 -->
             <div class=" t_right ">
                 <ul class="nav">
-                    <li class="nav-item"><a href="">登录</a></li>
-                    <li class="nav-item"><a href="">注册</a></li>
+                    <li class="nav-item"><router-link to='Login'>登录</router-link></li>
+                    <li class="nav-item"><router-link to='Regist'>注册</router-link></li>
                     <li class="nav-item"><a href="">我的易果</a>
                         <ul class="d-none">
                             <li>我的订单</li>

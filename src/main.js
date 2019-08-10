@@ -8,6 +8,8 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 // 6配置axios基础路径
  axios.defaults.baseURL="http://127.0.0.1:5050/"
+ // 7配置axios 保存session信息
+ axios.defaults.withCredentials=true
 // 引入element
  import ElementUI from 'element-ui'
 

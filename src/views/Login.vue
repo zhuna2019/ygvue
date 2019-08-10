@@ -22,12 +22,12 @@
     </div>
     <!-- 第三行 -->
     <div class="row3">
-        <div><input type="checkbox">自动登录</div>
+        <div class="auto"><input id="chb" type="checkbox">自动登录</div>
         <div><a href="javascript:;">忘记登录密码？</a></div>
     </div>
     <!-- 第四行 -->
     <div class="row4">
-        <button>登录</button>
+        <button @click="login">登录</button>
     </div>
     </div>
 </div>
@@ -61,16 +61,25 @@
     display:flex;
     margin-bottom:3rem;
     margin-top:1rem;
-    justify-content: space-around;
+   
+}
+a{
+    font-size:14px;
+    color:#666;
 }
 .row1 input,.row2 input{
     width:15rem;
     height:2.5rem;
    padding-left:1rem;
-  
+   margin-left:1rem;
    outline: 0;
    
 }
+.auto{
+  margin-right:6rem;
+  font-size:14px;
+}
+
 button{
   width:18rem;
   height:2.5rem;
@@ -78,3 +87,50 @@ button{
   border:0;outline: 0;
 }
 </style>
+<script>
+export default {
+    data(){
+        return{
+            uname:"",
+            upwd:""
+        }
+    },
+    methods:{
+       login(){
+        // 1 获取url
+         var url="api/login"
+        // 2 获取参数
+        var  uname=this.uname;
+        var  upwd=this.upwd;
+        // 用户名非空验证
+        if(!uname){
+            this.$message({
+             showClose: true,
+             message: '用户名不能为空',
+             type: 'error'
+            });
+            return;
+         }
+         // 密码非空验证
+         if(!upwd){
+            this.$message({
+             showClose: true,
+             message: '密码不能为空',
+             type: 'error'
+            });
+            return;
+         }
+         var obj={uname,upwd}
+        
+        this.axios.get(url,{params:obj}).then(result=>{
+                if(result.data.code==-1){
+                    this.$message.error('用户名或密码错误');
+                }else if(result.data.code==1){
+                    this.$router.push("/")
+                }
+        })
+       }
+    },
+    
+}
+</script>><>
