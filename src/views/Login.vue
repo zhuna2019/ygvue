@@ -73,10 +73,10 @@ export default {
         var upwd=this.upwd;
         var user_name=this.user_name;
         var phone=this.phone
-        var obj={uname,upwd,user_name,phone}
-        
+        var obj= this.$qs.stringify({uname:uname,upwd:upwd,user_name:user_name,phone:phone})
+        console.log(obj)
         // 发送请求
-        this.axios.get(url,{params:obj}).then(result=>{
+        this.axios.post(url,{data:obj}).then(result=>{
             console.log(result)
         })
       }

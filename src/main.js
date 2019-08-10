@@ -4,6 +4,9 @@ import router from './router'
 
 import store from './store'
 import axios from "axios"
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+import qs from 'qs';
+Vue.prototype.$qs = qs;
 // 6配置axios基础路径
  axios.defaults.baseURL="http://127.0.0.1:5050/"
 // 引入element
