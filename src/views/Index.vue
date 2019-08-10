@@ -31,7 +31,7 @@ export default {
    },
     created(){
    this.axios.get(
-      "http://localhost:5050/index"
+      "http://localhost:5050/api/index"
     ).then(result=>{
         //   console.log(result.data);
           this.result=result.data;

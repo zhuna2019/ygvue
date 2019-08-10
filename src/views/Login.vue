@@ -74,6 +74,7 @@ export default {
         var user_name=this.user_name;
         var phone=this.phone
         var obj={uname,upwd,user_name,phone}
+        
         // 发送请求
         this.axios.get(url,{params:obj}).then(result=>{
             console.log(result)
