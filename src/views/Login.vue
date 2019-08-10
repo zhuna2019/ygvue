@@ -61,9 +61,20 @@
     display:flex;
     margin-bottom:3rem;
     margin-top:1rem;
+    justify-content: space-around;
 }
-.row1 input,.row2 iput{
+.row1 input,.row2 input{
     width:15rem;
-   padding-left:10px;
+    height:2.5rem;
+   padding-left:1rem;
+  
+   outline: 0;
+   
+}
+button{
+  width:18rem;
+  height:2.5rem;
+  background:rgb(14, 184, 141);
+  border:0;outline: 0;
 }
 </style>
