@@ -15,22 +15,22 @@
              <!--第一行 -->
              <div class="row2">
                  <div>用户名</div>
-                 <div><input v-model="value" vlaue="uname" type="text" placeholder="请输入用户名"> </div>
+                 <div><input v-model="uname" vlaue="uname" type="text" placeholder="请输入用户名"> </div>
              </div>
              <!--第二行 -->
              <div class="row3">
                  <div>密码</div>
-                 <div><input v-model="value" vlaue="upwd" type="password" placeholder="请输入密码"> </div>
+                 <div><input v-model="upwd" vlaue="upwd" type="password" placeholder="请输入密码"> </div>
              </div>
              <!--第三行 -->
              <div class="row3">
                  <div>真实姓名</div>
-                 <div><input v-model="value" vlaue="user_name" type="text" placeholder="请输入真实姓名"> </div>
+                 <div><input v-model="user_name" vlaue="user_name" type="text" placeholder="请输入真实姓名"> </div>
              </div>
              <!--第四行 -->
              <div class="row3">
                  <div>电话</div>
-                 <div><input v-model="value" vlaue="phone" type="text" placeholder="请输入电话号码"> </div>
+                 <div><input v-model="phone" vlaue="phone" type="text" placeholder="请输入电话号码"> </div>
              </div>
            
             
@@ -48,7 +48,7 @@
                  <div><a href="">&lt;&lt;隐私政策&gt;&gt;</a></div>
              </div>
              <!-- 注册按钮 -->
-             <div><button>立即注册</button></div>
+             <div><button @click="load">立即注册</button></div>
          </div>
           
     </div>
@@ -63,9 +63,11 @@ export default {
             phone:""
         }
     },
-    created(){
-        // 获取请求url
-        var url="regist"
+    methods:{
+        load(){
+            
+          // 获取请求url
+        var url="api/regist"
         // 获取请求参数
         var uname=this.uname;
         var upwd=this.upwd;
@@ -73,9 +75,13 @@ export default {
         var phone=this.phone
         var obj={uname,upwd,user_name,phone}
         // 发送请求
-        this.axios.post(url,{params:obj}).then(result=>{
+        this.axios.get(url,{params:obj}).then(result=>{
             console.log(result)
         })
+      }
+    },
+    created(){
+        
     },
 }
 </script>

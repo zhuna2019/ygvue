@@ -4,6 +4,8 @@ import router from './router'
 
 import store from './store'
 import axios from "axios"
+// 6配置axios基础路径
+ axios.defaults.baseURL="http://127.0.0.1:5050/"
 // 引入element
  import ElementUI from 'element-ui'
 
