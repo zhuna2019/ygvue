@@ -13,12 +13,12 @@
          <div class="reg">
              
              <!--第一行 -->
-             <div class="row2">
+             <div class="row1">
                  <div>用户名</div>
                  <div><input v-model="uname" vlaue="uname" type="text" placeholder="请输入用户名"> </div>
              </div>
              <!--第二行 -->
-             <div class="row3">
+             <div class="row2">
                  <div>密码</div>
                  <div><input v-model="upwd" vlaue="upwd" type="password" placeholder="请输入密码"> </div>
              </div>
@@ -28,21 +28,21 @@
                  <div><input v-model="user_name" vlaue="user_name" type="text" placeholder="请输入真实姓名"> </div>
              </div>
              <!--第四行 -->
-             <div class="row3">
+             <div class="row4">
                  <div>电话</div>
                  <div><input v-model="phone" vlaue="phone" type="text" placeholder="请输入电话号码"> </div>
              </div>
            
             
              <!--第五行 -->
-             <div class="row1">
+             <div class="row5">
                  <div>图形验证码</div>
                  <div><input type="text" placeholder="图形验证码"> </div>
                  <div>abcd</div>
                  <div>换一张</div>
              </div>
               <!--第六行 -->
-             <div class="row4">
+             <div class="row6">
                  <div><input type="checkbox">我已阅读同意</div>
                  <div><a href="">&lt;&lt;易果服务协议&gt;&gt; &nbsp;</a></div>
                  <div><a href="">&lt;&lt;隐私政策&gt;&gt;</a></div>
