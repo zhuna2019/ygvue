@@ -11,36 +11,72 @@
          </div>
          <!-- 注册区域 -->
          <div class="reg">
+             
              <!--第一行 -->
+             <div class="row2">
+                 <div>用户名</div>
+                 <div><input v-model="value" vlaue="uname" type="text" placeholder="请输入用户名"> </div>
+             </div>
+             <!--第二行 -->
+             <div class="row3">
+                 <div>密码</div>
+                 <div><input v-model="value" vlaue="upwd" type="password" placeholder="请输入密码"> </div>
+             </div>
+             <!--第三行 -->
+             <div class="row3">
+                 <div>真实姓名</div>
+                 <div><input v-model="value" vlaue="user_name" type="text" placeholder="请输入真实姓名"> </div>
+             </div>
+             <!--第四行 -->
+             <div class="row3">
+                 <div>电话</div>
+                 <div><input v-model="value" vlaue="phone" type="text" placeholder="请输入电话号码"> </div>
+             </div>
+           
+            
+             <!--第五行 -->
              <div class="row1">
                  <div>图形验证码</div>
                  <div><input type="text" placeholder="图形验证码"> </div>
                  <div>abcd</div>
                  <div>换一张</div>
              </div>
-             <!--第二行 -->
-             <div class="row2">
-                 <div>用户名</div>
-                 <div><input type="text" placeholder="请输入用户名"> </div>
-             </div>
-             <!--第三行 -->
-             <div class="row3">
-                 <div>密码</div>
-                 <div><input type="password" placeholder="请输入密码"> </div>
-             </div>
-             <!--第四行 -->
+              <!--第六行 -->
              <div class="row4">
                  <div><input type="checkbox">我已阅读同意</div>
                  <div><a href="">&lt;&lt;易果服务协议&gt;&gt; &nbsp;</a></div>
                  <div><a href="">&lt;&lt;隐私政策&gt;&gt;</a></div>
              </div>
-             <!--  -->
+             <!-- 注册按钮 -->
+             <div><button>立即注册</button></div>
          </div>
+          
     </div>
 </template>
 <script>
 export default {
-    
+    data(){
+        return{
+            uname:"",
+            upwd:"",
+            user_name:"",
+            phone:""
+        }
+    },
+    created(){
+        // 获取请求url
+        var url="regist"
+        // 获取请求参数
+        var uname=this.uname;
+        var upwd=this.upwd;
+        var user_name=this.user_name;
+        var phone=this.phone
+        var obj={uname,upwd,user_name,phone}
+        // 发送请求
+        this.axios.post(url,{params:obj}).then(result=>{
+            console.log(result)
+        })
+    },
 }
 </script>
 <style scoped>
