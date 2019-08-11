@@ -10,6 +10,10 @@
         </div>
     </div>
     <div class="login">
+    <div class="top">
+        <h5>欢迎登录</h5>
+        <div class="right">还没有账号？<router-link to='Regist' class="rig">欢迎注册</router-link></div>
+    </div>
        <!--第一行 -->
     <div class="row1">
         <div>用户名</div>
@@ -49,12 +53,28 @@
     margin-left:10rem;
     margin-top:1rem;
 }
+.rig{
+     color:rgb(39, 121, 46);
+}
 .login{
     width:20rem;
    display:flex;
    flex-direction: column;
    align-items: center;
    border:1px solid #aaa;
+}
+.top{
+    width: 100%;
+    display:flex;
+    margin-top:2rem;
+    justify-content: space-around;
+}
+h5{
+    margin-right:4rem;
+}
+.top>.right{
+    font-size:14px;
+  
 }
 .row1,.row2,.row3,.row4{
    
@@ -63,6 +83,7 @@
     margin-top:1rem;
    
 }
+
 a{
     font-size:14px;
     color:#666;
@@ -74,6 +95,9 @@ a{
    margin-left:1rem;
    outline: 0;
    
+}
+.row2 input{
+  margin-left:1.5rem;
 }
 .auto{
   margin-right:6rem;

@@ -64,6 +64,7 @@
             </div>
             <div class="cart ">
                 <img src="../../public/imgs/cart.png" alt="">
+                
             </div>
         </div>
     </div>
