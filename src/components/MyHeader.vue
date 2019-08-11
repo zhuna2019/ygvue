@@ -63,8 +63,10 @@
                 <input type="text" placeholder="输入商品名"><span>搜索</span>
             </div>
             <div class="cart ">
-                <img src="../../public/imgs/cart.png" alt="">
-                
+                <img @click="jump" src="../../public/imgs/cart.png" alt="">
+                <span style="color:red">
+                   {{$store.getters.getCartCount}}
+               </span>
             </div>
         </div>
     </div>
@@ -141,5 +143,17 @@
    
 }
 </style>
+<script>
+export default {
+    data(){
+      return{}
+    },
+    methods:{
+        jump(){
+          this.$router.push("/cart")
+        }
+    },
+}
+</script>
 
 

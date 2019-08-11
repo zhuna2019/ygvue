@@ -13,9 +13,17 @@
               <span class="cn1" :data-lid="item.lid" data-num="-1" @click="update">-</span>
               <input type="text" :value="item.count">
               <span  :data-lid="item.lid" data-num="1" @click="update">+</span>
-           </div>     
+              <span><button @click="delItem">删除</button></span>
+           </div>  
+            
         </div>
-       
+        <div>
+               购物车商品数量
+               <span style="color:red">
+                   {{$store.getters.getCartCount}}
+               </span>
+          </div>  
+        
     </div>
 </template>
 <script>
@@ -30,7 +38,7 @@ export default {
         var lid=e.target.dataset.lid;
         var num=e.target.dataset.num;
        //获取请求url
-        var url="update"
+        var url="api/update"
         // 请求参数
         var obj={num,lid}
         this.axios.get(url,{params:obj}).then(result=>{ 
@@ -45,10 +53,10 @@ export default {
          //获取当前商品的id
          var id=e.target.dataset.id;
          //获取请求url
-         var url="delete"
+         var url="api/delete"
         // 请求参数
         var obj={id:id}
-        this.$messagebox.confirm("确认删除?")
+        this.$confirm('您确定删除吗？')
         // 确认删除
         .then(action=>{
             this.axios.get(url,{params:obj}).then(result=>{
@@ -57,24 +65,33 @@ export default {
         })
         // 确认取消
         .catch(err=>{
-            this.$toast("取消删除")
+            throw err;
         })  
        },
         loadMore(){
             // 加载购物车中的数据
             // 当组件创建成功后调用
             // 请求服务器地址
-        var url="cart";
+        var url="api/cart";
        
         this.axios.get(url).then(result=>{
             if(result.data.code==-1){
                this.$messagebox("请登录")
                 this.$router.push("/Login");
                 return;
-            } this.list=result.data.data;
+            } var list=result.data.data;
+            // 加载之前先清空
+            this.$store.commit("clear");
+            // 先添加cb属性再赋值list 
+            for (var item of list){
+                item.cb=false;
+                // 修改共享购物车中数量值
+                this.$store.commit("increment");
+            }
+            // 保存购物车数据
+            this.list=list;
            
         })
-
         }
     },
     created(){
