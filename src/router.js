@@ -7,6 +7,7 @@ import Item from './components/Index/Item'
 import Regist from './views/Regist'
 import Login from './views/Login'
 import Cart from './views/Cart'
+import Products from './views/Products'
 
 Vue.use(Router)
 
@@ -19,5 +20,6 @@ export default new Router({
     {path:"/regist", component:Regist},
     {path:"/login", component:Login},
     {path:"/cart", component:Cart},
+    {path:"/products/:kw", component:Products,props:true},
   ]
 })

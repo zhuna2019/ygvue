@@ -5,10 +5,10 @@
             <!-- 工具栏左侧 -->
             <div class=" t_left">
                 <ul class="nav ">
-                    <li class="nav-item float-left mr-2">欢迎光临阳光生鲜！</li>
-                    <li class="nav-item float-left mr-1">
-                        <div class="float-left">配送至:</div>
-                        <div class="docs-methods float-left" >
+                    <li class="nav-item  mr-2">欢迎光临阳光生鲜！</li>
+                    <li class="send_to nav-item  mr-1">
+                        <div class="">配送至:</div>
+                        <div class="docs-methods " >
                                     <form class="form-inline">
                                         <div id="distpicker">
                                             <div class="form-group">
@@ -40,12 +40,7 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a href="">手机易果</a>
-                        <div>
-                            <img src="" alt="">
-                        </div>
-                        <div>
-                                <img src="" alt="">
-                            </div>
+                       
                     </li>
                     <li class="nav-item"><a href="">礼品绑定</a></li>
                     <li class="nav-item"><a href="">礼品兑换券入口</a></li>
@@ -72,14 +67,21 @@
     </div>
 </template>
 <style scoped>
+
 /* 顶部工具栏左侧 */
 .header>.topTool{
+    width:100%;
+    height:2.5rem;
     display:flex;
     justify-content: space-between;
+    align-items: center;
 }
 .header>.topTool>.t_left{
     font-size:14px;
     color:#666;
+}
+.nav{
+    align-items: center;
 }
 .header>.topTool>.t_left a{
     color:#666;
@@ -96,12 +98,20 @@
    font-size:14px;
    margin-left:10px;
     text-align: right;
+  
+}
+
+.send_to {
+    display:flex;
+    align-items: center;
 }
 
 .header>.topHead{
     display: flex;
-    width:1280px;
+    align-items: center;
+    
     height:90px;
+    background:#eee;
  
 }
 .header>.topHead>.log{
