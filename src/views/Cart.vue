@@ -13,7 +13,7 @@
               <span class="cn1" :data-lid="item.lid" data-num="-1" @click="update">-</span>
               <input type="text" :value="item.count">
               <span  :data-lid="item.lid" data-num="1" @click="update">+</span>
-              <span><button @click="delItem">删除</button></span>
+              <span><button @click="delItem" :data-id="item.id">删除</button></span>
            </div>  
             
         </div>
@@ -44,7 +44,14 @@ export default {
         this.axios.get(url,{params:obj}).then(result=>{ 
             // console.log(result)
            if(result.data.code==1){
-              this.loadMore();
+               if(num==1){
+                // 修改共享购物车中数量值
+                 this.$store.commit("increment");
+               }else if(num==-1){
+                    // 修改共享购物车中数量值
+                 this.$store.commit("unincrement");
+               }
+             
            }
         })
        },
@@ -60,6 +67,7 @@ export default {
         // 确认删除
         .then(action=>{
             this.axios.get(url,{params:obj}).then(result=>{
+               
                this.loadMore();
             })
         })

@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <my-header></my-header>
         
-       <main id="main" class="container">
+       <main id="main" >
+          <my-header></my-header>
            <carousel/> 
            <floor v-for="(item,i) of result" :key="i" :messages="result"></floor>
               
@@ -35,7 +35,6 @@ export default {
     ).then(result=>{
         //   console.log(result.data);
           this.result=result.data;
-          console.log(this.result)
     })
   },
 

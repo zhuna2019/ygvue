@@ -1,5 +1,5 @@
 <template>
-    <div class="header container">
+    <div class="header">
         <!-- 顶部工具栏 -->
         <div class="topTool ">
             <!-- 工具栏左侧 -->
@@ -55,7 +55,7 @@
                 <img src="../../public/imgs/logo.jpg" alt="">
             </div>
             <div class="search ">
-                <input type="text" placeholder="输入商品名"><span>搜索</span>
+                <input v-model="kw" type="text" placeholder="输入商品名" @keyup.13="search"><span @click="search">搜索</span>
             </div>
             <div class="cart ">
                 <img @click="jump" src="../../public/imgs/cart.png" alt="">
@@ -75,6 +75,7 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
+   
 }
 .header>.topTool>.t_left{
     font-size:14px;
@@ -107,11 +108,13 @@
 }
 
 .header>.topHead{
-    display: flex;
+    display:flex;
+    width: 100%;
     align-items: center;
-    
     height:90px;
     background:#eee;
+    
+   
  
 }
 .header>.topHead>.log{
@@ -156,11 +159,25 @@
 <script>
 export default {
     data(){
-      return{}
+      return{
+          kw:"",
+      }
+    },
+    mounted(){
+        this.kw=this.$route.params.kw;
+    },
+    watch:{
+        //监控地址栏中的信息
+       "$route"(){
+           this.kw=this.$route.params.kw;
+       }
     },
     methods:{
         jump(){
           this.$router.push("/cart")
+        },
+        search(){
+            this.$router.push(`/products/${this.kw}`)
         }
     },
 }
