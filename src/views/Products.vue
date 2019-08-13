@@ -82,6 +82,7 @@
                      </div>
                 </div>
             </div>
+            <!-- 分页 -->
             <div class="block">
           
                <el-pagination
@@ -115,10 +116,7 @@ export default {
             this.axios.get(url,{params:{kw:this.kw}}).then(res=>{
                 console.log(res.data)
                 this.plist=res.data.data;
-                this.total=res.data.count;
-                
-
-               
+                this.total=res.data.count;     
             })
         },
         addcart(e){
@@ -138,7 +136,7 @@ export default {
                 console.log(result)
                 if(result.data.code==-1){
                 
-                    this.$router.push("/Login");
+                   this.$router.push("/Login");
                 }else{
                      this.$message({
                      message: '恭喜你，成功加入购物车',
