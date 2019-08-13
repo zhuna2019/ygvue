@@ -185,7 +185,7 @@ res.send({code:1,msg:'update success'})
 router.get("/products",(req,res)=>{
   var output={
     count:0,
-    pageSize:9,
+    pageSize:12,
     pageCount:0,
     pno:req.query.pno||0,
     data:[]
