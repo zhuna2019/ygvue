@@ -108,6 +108,7 @@ export default {
             }
             // 保存购物车数据
             this.list=list;
+            console.log(list)
            
         })
         }

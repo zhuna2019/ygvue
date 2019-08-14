@@ -57,7 +57,7 @@
             <div class="search ">
                 <input v-model="kw" type="text" placeholder="输入商品名" @keyup.13="search"><span @click="search">搜索</span>
             </div>
-            <div class="cart ">
+            <div class="cart ">查看购物车
                 <img @click="jump" src="../../public/imgs/cart.png" alt="">
                 <span style="color:red">
                    {{$store.getters.getCartCount}}

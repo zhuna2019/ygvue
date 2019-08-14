@@ -82,6 +82,7 @@
                      </div>
                 </div>
             </div>
+            <!-- 分页 -->
             <div class="block">
           
                <el-pagination
@@ -117,7 +118,7 @@ export default {
                 this.plist=res.data.data;
                 this.total=res.data.count;
                 
-              
+
                
             })
         },
@@ -138,7 +139,7 @@ export default {
                 console.log(result)
                 if(result.data.code==-1){
                 
-                    this.$router.push("/Login");
+                   this.$router.push("/Login");
                 }else{
                      this.$message({
                      message: '恭喜你，成功加入购物车',
