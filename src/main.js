@@ -37,6 +37,12 @@ var store = new Vuex.Store({
     unincrement(state){
       state.cartCount--;
     },
+    subduction(state,count){
+      state.cartCount-=count;
+    },
+    addductio(state,count){
+      state.cartCount+=count;
+    },
     clear(state){
       state.cartCount=0;
     }

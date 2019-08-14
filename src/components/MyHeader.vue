@@ -71,14 +71,15 @@
 /* 顶部工具栏左侧 */
 .header>.topTool{
     width:100%;
-    height:2.5rem;
+    height:2rem;
     display:flex;
     justify-content: space-between;
     align-items: center;
+    
    
 }
 .header>.topTool>.t_left{
-    font-size:14px;
+    font-size:12px;
     color:#666;
 }
 .nav{
@@ -96,7 +97,7 @@
 /* 顶部工具栏右侧 */
 .header>.topTool>.t_right>ul a{
    color:#666;
-   font-size:14px;
+   font-size:12px;
    margin-left:10px;
     text-align: right;
   

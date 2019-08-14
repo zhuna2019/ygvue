@@ -117,7 +117,7 @@ export default {
                 this.plist=res.data.data;
                 this.total=res.data.count;
                 
-
+              
                
             })
         },
@@ -146,9 +146,8 @@ export default {
                       
                      });
                        // 修改共享购物车中数量值
-                  this.$store.commit("increment");
-                 
-                 
+                  this.$store.commit("increment");   
+                   
                 }
             })
         }
@@ -233,7 +232,7 @@ button{
     font-size:14px;
 }
 .block{
-    text-align: right;
+    text-align: right;                                                                                                                                         
 }
 
 </style>>
