@@ -131,7 +131,7 @@ export default {
 <style scoped>
 *{margin:0px;padding:0px;}
 .footer_1f{
-    width:1280px;
+    width:100%;
     height:80px;
     background:#eee;
 }

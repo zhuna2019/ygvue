@@ -90,7 +90,9 @@
                  :total="total">
                </el-pagination>
             </div>
+             <my-footer/>
         </div>
+        
     </div>
 </template>
 <script>

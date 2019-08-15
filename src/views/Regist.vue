@@ -39,23 +39,23 @@
              <div class="row5">
                  <div>图形验证码</div>
                  <div><input type="text" placeholder="图形验证码"> </div>
-                 <div>abcd</div>
-                 <div>换一张</div>
+                 <div><svg id="s3" width="80" height="30"><text id="t3"></text></svg></div>
+                 <div @click="change">换一张</div>
              </div>
               <!--第六行 -->
              <div class="row6">
-                 <div><input type="checkbox">我已阅读同意</div>
+                 <div><input type="checkbox" id="chb">我已阅读同意</div>
                  <div><a href="">&lt;&lt;易果服务协议&gt;&gt; &nbsp;</a></div>
                  <div><a href="">&lt;&lt;隐私政策&gt;&gt;</a></div>
              </div>
              <!-- 注册按钮 -->
-             <div><button @click="load">立即注册</button></div></div>
+             <div><button @click="load" id="btn">立即注册</button></div></div>
             <div class="right">
                 <div class="">我已注册,现在就<router-link to='Login'>立即登录</router-link> </div>
                 <div><img src="../../public/imgs/register.png" alt=""></div>
             </div>
          </div>
-          s
+          <my-footer/>
     </div>
 </template>
 <script>
@@ -69,8 +69,7 @@ export default {
         }
     },
     methods:{
-        load(){
-            
+        load(){       
           // 获取请求url
         var url="api/regist"
         // 获取请求参数
@@ -78,20 +77,25 @@ export default {
         var upwd=this.upwd;
         var user_name=this.user_name;
         var phone=this.phone
-        var obj={uname,upwd,user_name,phone}
-        
+        var obj={uname,upwd,user_name,phone} 
+        // 获取复选框同意按钮如果选中 则发出请求
+        if(chb.checked){
         // 发送请求
         this.axios.get(url,{params:obj}).then(result=>{
            if(result.data.affectedRows>0){
                this.$router.push("/login")
            }
-        })
-      }
-    },
+         })
+        }
+        // 如果同意按钮没有选则提示选中
+        else{
+             this.$message.error('请接受服务协议');
+        }
+      },
+    },  
 }
 </script>
 <style scoped>
-
 .header{
     width:100%;
     height:4rem;
@@ -113,8 +117,7 @@ a{
     text-decoration: none;
 }
 .reg{
-    display:flex;
-    
+    display:flex;  
     border:1px solid rgb(6, 179, 135);
     border-top:none;
 }
@@ -140,10 +143,9 @@ a{
 .row1 input,.row2 input,.row3 input,.row4 input,button{
     width:15rem;
     height:2.5rem;
-   padding-left:1rem;
-   margin-left:1rem;
-   outline: 0;
-   
+    padding-left:1rem;
+    margin-left:1rem;
+    outline: 0;  
 }
 .row5{
     text-align: left;
@@ -153,8 +155,7 @@ a{
     height:2.5rem;
     padding-left:1rem;
     margin-left:1rem;
-    
-   outline: 0;
+    outline: 0;
 }
 .row1 input{
     margin-right:1rem;
@@ -164,7 +165,8 @@ a{
 }
 button{
     background:rgb(4, 158, 81);
-    outline: 0;border:0;
+    outline:0;
+    border:0;
     margin-top:1rem;
 }
 </style>

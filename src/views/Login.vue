@@ -34,10 +34,12 @@
         <button @click="login">登录</button>
     </div>
     </div>
+    
 </div>
 </template>
 
 <style scoped>
+
 .header{
     width:100%;
     height:4rem;

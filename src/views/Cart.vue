@@ -28,6 +28,7 @@
                </span>
           </div>  
         </div>
+         <my-footer/>
     </div>
 </template>
 <script>
