@@ -14,9 +14,9 @@
                <img class="ml-3" @click="delItem"  :src="`http://127.0.0.1:5050/${item.img_url}`" :data-id="item.id">
                <div  @click="delItem" class="title ml-3" :data-id="item.id">{{item.title}}</div>
                <div @click="delItem" class="price ml-5" :data-id="item.id">￥{{(item.price*item.count).toFixed(2)}}</div>
-              <span class="cn1 ml-5" :data-lid="item.lid" data-num="-1" @click="update">-</span>
+              <span class="cn1 ml-5" :data-lid="item.lid" data-num="-1" @click="update"  :data-count="item.count" >-</span>
               <input class="count" type="text" :value="item.count">
-              <span  :data-lid="item.lid" data-num="1" @click="update">+</span>
+              <span  :data-lid="item.lid" data-num="1" @click="update" :data-count="item.count">+</span>
               <button class="ml-5"  @click="delItem" :data-id="item.id" :data-count="item.count">删除</button>
            </div>  
             
@@ -40,31 +40,36 @@ export default {
     },
     methods:{
        update(e){    
+        
         var lid=e.target.dataset.lid;
         var num=e.target.dataset.num;
+        var count=e.target.dataset.count;
        //获取请求url
         var url="api/update"
         // 请求参数
+       
         var obj={num,lid}
         this.axios.get(url,{params:obj}).then(result=>{ 
-            // console.log(result)
+            //  console.log(result)
            if(result.data.code==1){
-                
+              
                if(num==1){
                 // 修改共享购物车中数量值
                  this.$store.commit("increment"); 
                }else if(num==-1){
-                    // 修改共享购物车中数量值
-                 this.$store.commit("unincrement");
-              
+                     console.log(count)
+                   if(count==0){
+                       e.target.disabled=true;
+                   }else {
+                         // 修改共享购物车中数量值
+                      this.$store.commit("unincrement");
+                   }
+                  
                }  
-                this.loadMore();  
-           }
-           
+                this.loadMore();
+             }
         })
-        
-       },
-     
+       }, 
         // 删除功能
        delItem(e){
          //获取当前商品的id
@@ -109,7 +114,7 @@ export default {
             }
             // 保存购物车数据
             this.list=list;
-            console.log(list)
+            // console.log(list)
            
         })
         }
