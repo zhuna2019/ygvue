@@ -8,6 +8,8 @@ import Regist from './views/Regist'
 import Login from './views/Login'
 import Cart from './views/Cart'
 import Products from './views/Products'
+import toPay from './views/toPay'
+import TopHeader from './components/TopHeader'
 
 Vue.use(Router)
 
@@ -21,5 +23,7 @@ export default new Router({
     {path:"/login", component:Login},
     {path:"/cart", component:Cart},
     {path:"/products/:kw", component:Products,props:true},
+    {path:"/toPay", component:toPay},
+    {path:"/TopHeader", component:TopHeader},
   ]
 })

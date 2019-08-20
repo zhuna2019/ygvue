@@ -20,9 +20,12 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
  //  把页面头部公用区域做成全局组件
 import MyHeader from  './components/MyHeader'
 Vue.component("my-header",MyHeader);
+import TopHeader from  './components/TopHeader'
+Vue.component("top-header",TopHeader);
 //  把页面底部公用区域做成全局组件
 import Footer from  './components/Footer'
 Vue.component("my-footer",Footer);
+
 
 Vue.config.productionTip = false
 Vue.prototype.axios=axios

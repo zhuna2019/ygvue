@@ -13,7 +13,7 @@
                <input type="checkbox" >
                <img class="ml-3" @click="delItem"  :src="`http://127.0.0.1:5050/${item.img_url}`" :data-id="item.id">
                <div  @click="delItem" class="title ml-3" :data-id="item.id">{{item.title}}</div>
-               <div @click="delItem" class="price ml-5" :data-id="item.id">￥{{(item.price*item.count).toFixed(2)}}</div>
+               <div @click="delItem" class="price1 ml-5" :data-id="item.id">￥{{(item.price*item.count).toFixed(2)}}</div>
               <span class="cn1 ml-5" :data-lid="item.lid" data-num="-1" @click="update"  :data-count="item.count" >-</span>
               <input class="count" type="text" :value="item.count">
               <span  :data-lid="item.lid" data-num="1" @click="update" :data-count="item.count">+</span>
@@ -21,13 +21,19 @@
            </div>  
             
         </div>
-        <div>
-               购物车商品数量
-               <span style="color:red">
-                   {{$store.getters.getCartCount}}
-               </span>
-          </div>  
+        <div class="total">
+            <div class="cot">
+               <div class="del">删除选中的商品</div>
+               <div class="clear">
+                  清空购物车 
+               </div>
+            </div>
+            <div class="price">
+              <div class="total_price">总价￥{{total.toFixed(2)}}</div>
+              <button class="pay" @click="toPay">去结算</button>
+            </div>
         </div>
+      </div>
          <my-footer/>
     </div>
 </template>
@@ -35,10 +41,15 @@
 export default {
     data(){
         return{
-            list:[],  
+            list:[],
+            total:0  
         }
     },
     methods:{
+        // 结算
+        toPay(){
+          this.$router.push("/toPay")
+        },
        update(e){    
         
         var lid=e.target.dataset.lid;
@@ -92,7 +103,7 @@ export default {
             throw err;
         })  
        },
-        loadMore(){
+    loadMore(){
             // 加载购物车中的数据
             // 当组件创建成功后调用
             // 请求服务器地址
@@ -103,14 +114,18 @@ export default {
                this.$messagebox("请登录")
                 this.$router.push("/Login");
                 return;
-            } var list=result.data.data;
+            } 
+            var list=result.data.data;
+            console.log(list)
             // 加载之前先清空
             this.$store.commit("clear");
             // 先添加cb属性再赋值list 
             for (var item of list){
                 item.cb=false;
                 // 修改共享购物车中数量值
-                this.$store.commit("increment");
+                // this.$store.commit("increment");
+                this.$store.commit('addductio', item.count)
+                this.total+=item.price*item.count;
             }
             // 保存购物车数据
             this.list=list;
@@ -125,6 +140,9 @@ export default {
 }
 </script>
 <style scoped>
+
+
+/* 购物车头部加主体内容 */
 hr{
      background:rgb(9, 170, 130);
      margin:0;
@@ -164,10 +182,11 @@ hr{
     width:20rem;
     height:100%;
 }
-.price{
+.price1{
     width:10rem;
     height:100%;
     color:red;
+    
     
 }
 .count{
@@ -181,7 +200,7 @@ span{
  
 }
 .cn1{
-       margin-left:20px;
+       margin-left:30px;
        padding:0px 5px;
 }
 button{
@@ -195,5 +214,40 @@ button{
 /* 左侧图片与文字 */
 /* 单独修改图片高度与宽度 */
 /* 商品价格 */
+/* 购物车底部结算部分 */
+.total{
+    width:100%;
+    height:5rem;
+    background:#eee;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    font-size:14px;
+    margin-top:1rem;
+}
+.cot{
+    width:50%;
+    display:flex;
+    margin-left:3rem;
+}
+.del{
+    margin-right:6rem;
+}
+.price{
+    width:50%;
+    display:flex;
+    align-items: center;
+    font-size:20px;
+    font-weight: bolder;
+    margin-left:5rem;
+    color:red;
+}
+.total_price{
+    margin-right:2rem;
+}
+.pay{
+    width:6rem;
+    height:3rem;
+}
 </style>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+     <div class="header">
         <!-- 顶部工具栏 -->
         <div class="topTool ">
             <!-- 工具栏左侧 -->
@@ -51,35 +51,9 @@
                 </ul>
             </div>
         </div>
-        <!-- 头部LOGO 搜索，购物车 -->
-        <div class="topHead">
-            <div class="log col-3">
-                <img src="../../public/imgs/logo.jpg" alt="">
-            </div>
-            <div class="search ">
-                <input v-model="kw" type="text" placeholder="输入商品名" @keyup.13="search"><span @click="search">搜索</span>
-            </div>
-            <div class="cart ">查看购物车
-                <img @click="jump" src="../../public/imgs/cart.png" alt="">
-                <span style="color:red">
-                   {{$store.getters.getCartCount}}
-               </span>
-            </div>
-        </div>
-    </div>
+     </div>
 </template>
-<style scoped>
-.showLogin{
-    display:block;
-}
-.unshow{
-    display:none;
-}
-.uname{
-    color:rgb(236, 77, 49);
-    font-size:18px;
-}
-
+<style  scoped>
 /* 顶部工具栏左侧 */
 .header>.topTool{
     width:100%;
@@ -129,44 +103,6 @@
     
    
  
-}
-.header>.topHead>.log{
-    width:50px;
-    height:50px;
-     
-    
-}
-.header>.topHead>.search{
-    display:flex;
-    align-items: center;
-    width:650px;
-    height:30px;
-    text-align: center;
-}
-.header>.topHead>.search>input{
-    width:70%;
-   border:1px solid rgb(233, 83, 14);
-   padding-left:10px;
-   font-size:12px;
-   
-   
-}
-.header>.topHead>.search>span{
-   
-    padding:6px 15px;
-    background:rgb(233, 83, 14);
-    line-height: 10px;
-    text-align: center;
-    color:#fff;
-    font-size:12px;
-}
-.header>.topHead>.cart{
-    margin-left:50px;
-    width:100px;
-    height:50px;
-    
-  
-   
 }
 </style>
 <script>
@@ -228,5 +164,3 @@ export default {
     },
 }
 </script>
-
-
