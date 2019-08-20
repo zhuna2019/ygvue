@@ -23,14 +23,24 @@ router.get("/index",(req,res)=>{
     }
   })
 })
+// 判断是否登录路由
+router.get("/isLogin",(req,res)=>{
+  var uname=req.session.uname;
+  if(!uname){
+    res.send({code:-1,msg:"未登录"})  
+  }else{
+    res.send({code:1,msg:"已登录",data:uname})
+  }
+})
 // 登录路由
 
 router.get("/login",(req,res)=>{
 
-  var obj=req.query;
+  var uname = req.query.uname;
+  var upwd = req.query.upwd;
     
   var sql="SELECT uid FROM yg_user where uname=? AND upwd=?";
-  pool.query(sql,[obj.uname,obj.upwd],(err,result)=>{
+  pool.query(sql,[uname,upwd],(err,result)=>{
     // console.log(result)
      //执行sql语句回调函数
      if(err)throw err;
@@ -40,6 +50,7 @@ router.get("/login",(req,res)=>{
      }else{
       //  登录成功
       // 1将登录成功的凭据保存到session 中  
+      req.session.uname=uname;
       req.session.uid=result[0].uid;
       // 将登录成功凭据保存到session中
       res.send({code:1,msg:"登录成功"})    
@@ -101,7 +112,6 @@ router.get("/addcart",(req,res)=>{
   }
   // 2.4获取商品编号,商品价格,商品名称
   var lid=req.query.pid;
-  
   var price=req.query.price;
   var title=req.query.title;
   var img_url=req.query.img_url;

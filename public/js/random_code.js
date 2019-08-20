@@ -32,12 +32,13 @@ $(function(){
        c.setAttribute("fill",rc());
        c.setAttribute("fill-opacity",Math.random());
    //  2.3 将创建圆形添加画布中
-   s3.appendChild(c)
+       
    //  功能二 为原型绑定点击事件
    //  2.4获取当前圆形半径修改后保存回当前元素
    //  2.5 获取当前圆形透明度修改后再保存
    //  2.6 判断如果当前圆透明度<0.05
-    }  
+    } 
+    s3.appendChild(c) 
     //3 循环遍历4
     var str=""
     for(var i=0;i<4;i++){

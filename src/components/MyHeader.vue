@@ -32,8 +32,10 @@
             <!-- 工具栏右侧 -->
             <div class=" t_right ">
                 <ul class="nav">
-                    <li class="nav-item"><router-link to='Login'>登录</router-link></li>
-                    <li class="nav-item"><router-link to='Regist'>注册</router-link></li>
+                    <li class="nav-item" :class="show" ><router-link to='Login' >登录</router-link>
+                    </li>
+                    <li :class="unshow"><span class="uname">欢迎{{uname}}</span></li>
+                    <li class="nav-item" :class="show"><router-link to='Regist'>注册</router-link></li>
                     <li class="nav-item"><a href="">我的易果</a>
                         <ul class="d-none">
                             <li>我的订单</li>
@@ -67,6 +69,16 @@
     </div>
 </template>
 <style scoped>
+.showLogin{
+    display:block;
+}
+.unshow{
+    display:none;
+}
+.uname{
+    color:rgb(236, 77, 49);
+    font-size:18px;
+}
 
 /* 顶部工具栏左侧 */
 .header>.topTool{
@@ -162,10 +174,23 @@ export default {
     data(){
       return{
           kw:"",
+          uname:"",
+          show:{
+              showLogin:true, //默认启用
+              unshow:false,  //验证通过启用
+             
+          },
+          unshow:{
+              showLogin:false,
+              unshow:true
+          }
       }
     },
     mounted(){
         this.kw=this.$route.params.kw;
+    },
+    created(){
+        this.isLogin();
     },
     watch:{
         //监控地址栏中的信息
@@ -179,6 +204,26 @@ export default {
         },
         search(){
             this.$router.push(`/products/${this.kw}`)
+        },
+        isLogin(){
+         // 1 获取url
+         var url="api/isLogin"
+           this.axios.get(url).then(result=>{
+               console.log(result)
+               if(result.data.code==-1){
+                  this.show.showLogin=true;
+                   this.show.unshow=false;
+                   this.unshow.showLogin=false;
+                   this.unshow.unshow=true;
+               }else if(result.data.code==1){
+                   this.show.showLogin=false;
+                   this.show.unshow=true;
+                   this.unshow.showLogin=true;
+                   this.unshow.unshow=false;
+                   this.uname=result.data.data;
+                   
+               }
+           })
         }
     },
 }
