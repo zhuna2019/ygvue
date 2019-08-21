@@ -200,7 +200,15 @@ export default {
     },
     methods:{
         jump(){
-          this.$router.push("/cart")
+             var url="api/cart";
+            this.axios.get(url).then(result=>{
+            if(result.data.code==-1){
+                this.$router.push("/Login");
+                return;
+            }else if(result.data.code==1){
+              this.$router.push("/cart")
+           }
+            }) 
         },
         search(){
             this.$router.push(`/products/${this.kw}`)
