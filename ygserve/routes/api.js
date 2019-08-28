@@ -246,6 +246,30 @@ router.get("/shelp",(req,res)=>{
   })
 })
 
+// 
+router.post('/receiver',function(req,res){
+  var uid=req.session.uid
+  if(!uid){
+     res.send({code:-1,msg:"请登录"})
+     return;
+  }
+    var obj=req.body
+    var sql = "insert into yg_receiver_address set ?";
+   //3:json:{code:1,msg:"登录成功"}
+   pool.query(sql,[obj],(err,result)=>{
+      //执行sql语句回调函数
+      if(err){
+         throw err;
+      }else{
+         res.send({code:1,msg:"插入成功"})
+      }
+      //判断   
+   })
+
+
+})
+
+
 module.exports=router;
 
 function newFunction() {

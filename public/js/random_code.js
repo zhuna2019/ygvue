@@ -26,13 +26,13 @@ $(function(){
    //  2.1创建圆形
       var c=document.createElementNS("http://www.w3.org/2000/svg","circle")
    //  2.2 分别指定圆形cx,cy r fill fill-opacity
-       c.setAttribute("cx",rn(0,70));
-       c.setAttribute("cy",rn(0,40));
-       c.setAttribute("r",rn(1,1));
-       c.setAttribute("fill",rc());
-       c.setAttribute("fill-opacity",Math.random());
+    //    c.setAttribute("cx",rn(0,70));
+    //    c.setAttribute("cy",rn(0,40));
+    //    c.setAttribute("r",rn(1,1));
+    //    c.setAttribute("fill",rc());
+    //    c.setAttribute("fill-opacity",Math.random());
    //  2.3 将创建圆形添加画布中
-      s3.appendChild(c);
+    //   s3.appendChild(c);
    //  功能二 为原型绑定点击事件
    //  2.4获取当前圆形半径修改后保存回当前元素
    //  2.5 获取当前圆形透明度修改后再保存
@@ -42,14 +42,14 @@ $(function(){
     //3 循环遍历4
     var str=""
     for(var i=0;i<4;i++){
-      var t=document.getElementById("t3");
-     var a=t.setAttribute("x",rn(15,20));
-      t.setAttribute("y",rn(20,30));
-      t.setAttribute("fill",rc())
-      t.setAttribute("font-size",23)
-      t.setAttribute("rotate",(rn(0,45)));   
-      str+=arr[rn(0,60)]
+    //   var t=document.getElementById("t3");
+    //  var a=t.setAttribute("x",rn(15,20));
+    //   t.setAttribute("y",rn(20,30));
+    //   t.setAttribute("fill",rc())
+    //   t.setAttribute("font-size",23)
+    //   t.setAttribute("rotate",(rn(0,45)));   
+    //   str+=arr[rn(0,60)]
     }
-    t.innerHTML=str;
+    // t.innerHTML=str;
 
 })

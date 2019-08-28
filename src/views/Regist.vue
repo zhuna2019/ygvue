@@ -3,7 +3,7 @@
          <!-- 头部 -->
          <div class="header">
              <div class="logo">
-                 <img src="../../public/imgs/logo.jpg" alt="">
+                 <router-link to='/' ><img src="../../public/imgs/logo.jpg" alt=""></router-link>
             </div>
             <div>
                <h3 class="regtext">注册</h3>
@@ -39,7 +39,7 @@
              <div class="row5">
                  <div>图形验证码</div>
                  <div><input type="text" placeholder="图形验证码"> </div>
-                 <div><svg id="s3" width="80" height="30"><text id="t3"></text></svg></div>
+                 <!-- <div><svg id="s3" width="80" height="30"><text id="t3"></text></svg></div> -->
                  <div @click="change">换一张</div>
              </div>
               <!--第六行 -->

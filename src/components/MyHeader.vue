@@ -54,7 +54,7 @@
         <!-- 头部LOGO 搜索，购物车 -->
         <div class="topHead">
             <div class="log col-3">
-                <img src="../../public/imgs/logo.jpg" alt="">
+               <img src="../../public/imgs/logo.jpg" alt="">
             </div>
             <div class="search ">
                 <input v-model="kw" type="text" placeholder="输入商品名" @keyup.13="search"><span @click="search">搜索</span>

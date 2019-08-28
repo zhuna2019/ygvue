@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <div class="header">
         <div class="logo">
-           <img src="../../public/imgs/logo.jpg" alt="">
+           <router-link to='/' ><img src="../../public/imgs/logo.jpg" alt=""></router-link>
         </div>
         <div>
            <h3 class="loginText">登录</h3>

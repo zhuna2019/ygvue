@@ -4,7 +4,7 @@
 <!-- 顶部 -->
 <div class="top">
 <div class="logo">
-<img src="../../public/imgs/logo.jpg" alt="">
+<router-link to='/' ><img src="../../public/imgs/logo.jpg" alt=""></router-link>
 </div>
 <div>
 <h3 class="loginText">结算</h3>
@@ -16,25 +16,27 @@
 <h5>填写收件人信息</h5>
 </div>
 <hr>
-<div class="address">
-<div class="receiver">
-<span>收货人姓名:</span>
-<input type="text" v-model="receiver" value="receiver">
-</div>
-<div class="cellphone">
-<span>手机号:</span>
-<input type="text" v-model="cellphone" value="cellphone">
-</div>
-<div class="city">
-<span>收货地址:</span>
-<el-cascader :options="options" clearable v-model="value" ></el-cascader>
-</div>
-<div class="detail">
-<span>详细地址:</span>
-<input type="text" v-model="address" value="address">
-</div>
-<div><button @click="submit">提交</button></div>
-</div> 
+  <div class="address">
+    <div class="receiver">
+        <span>收货人姓名:</span>
+        <input type="text" v-model="receiver" vlaue="receiver"  placeholder="请输入收货人姓名">
+    </div>
+    <div class="cellphone">
+        <span>手机号:</span>
+        <input type="text" v-model="cellphone" value="cellphone" placeholder="请输入收货人电话">
+    </div>
+    <div class="city">
+        <span>收货地址:</span>
+        <el-cascader :options="options" clearable v-model="value" ></el-cascader>
+    </div>
+    <div class="detail">
+        <span>详细地址:</span>
+        <input type="text" v-model="address" value="address">
+    </div>
+    <div>
+        <button @click="submit">提交</button>
+    </div>
+ </div> 
 </div>
 <my-footer/>
 </div>
@@ -108,51 +110,63 @@ margin-top:1rem;
 
 </style>
 <script>
+import qs from 'qs';
 export default {
 data(){
 return {
 receiver:"",
 cellphone:"",
 address:"",
+value:"",
 options: [{
-value: '杭州',
-label: '杭州',
-children: [{
-value: '余杭区',
-label: '余杭区', 
-}, {
-value: '萧山区',
-label: '萧山区',
-}, {
-value: '江干区',
-label: '江干区',
-}, {
-value: '上城区',
-label: '上城区',
-}, {
-value: '西湖区',
-label: '西湖区',
-}, {
-value: '滨江区',
-label: '滨江区',
-}, {
-value: '高新区',
-label: '高新区',
-}, {
-value: '拱墅区',
-label: '拱墅区',
-}]
-}]
-}
+            value: '杭州',
+            label: '杭州',
+            children: [{
+            value: '余杭区',
+            label: '余杭区', 
+            }, {
+            value: '萧山区',
+            label: '萧山区',
+            }, {
+            value: '江干区',
+            label: '江干区',
+            }, {
+            value: '上城区',
+            label: '上城区',
+            }, {
+            value: '西湖区',
+            label: '西湖区',
+            }, {
+            value: '滨江区',
+            label: '滨江区',
+            }, {
+            value: '高新区',
+            label: '高新区',
+            }, {
+            value: '拱墅区',
+            label: '拱墅区',
+            }]
+        }]
+   }
 },
 methods:{
     submit(){
-        var receiver=this.receiver;
-        var cellphone=this.cellphone;
-        var address=this.address;
-        var county=this.value[1];
-        var city=this.value[0];
-        console.log(cellphone )
+         var receiver=this.receiver;
+         var cellphone=this.cellphone;
+         var address=this.address; 
+         var county=this.value[1];
+         var city=this.value[0];
+         var url="api/receiver"
+         var obj={receiver,cellphone,address,county,city}
+        this.axios.post(url,qs.stringify(obj)).then(res=>{
+            if(res.data.code==-1){
+                
+                this.$router.push("/Login")
+            }else if(res.data.code==1){
+                 this.$router.push("/")
+            }
+        })
+        
     }
 },
 }

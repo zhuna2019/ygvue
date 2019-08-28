@@ -5,12 +5,14 @@
        <div class="cart_text">我的购物车</div>
        <hr>
         <div class="ml-3">
-            全选<input type="checkbox">
+            全选<input type="checkbox" id="chb" @click="checkAll" v-model="allChecked">
         </div>
           <!-- 购物车商品信息 -->
-        <div v-for="(item,i) of list" :key="i" class="cart-item ml-3">
+          <!-- 反全选绑定在父元素上，利用冒泡 -->
+     
+        <div v-for="(item,i) of list" :key="i" class="cart-item ml-3" >
            <div class="leftImgText"  :data-id="item.id">
-               <input type="checkbox" >
+               <input type="checkbox" @click="checkChild" :checked="item.cb" :data-count="item.count" :data-price="item.price"> 
                <img class="ml-3" @click="delItem"  :src="`http://127.0.0.1:5050/${item.img_url}`" :data-id="item.id">
                <div  @click="delItem" class="title ml-3" :data-id="item.id">{{item.title}}</div>
                <div @click="delItem" class="price1 ml-5" :data-id="item.id">￥{{(item.price*item.count).toFixed(2)}}</div>
@@ -19,7 +21,7 @@
               <span  :data-lid="item.lid" data-num="1" @click="update" :data-count="item.count">+</span>
               <button class="ml-5"  @click="delItem" :data-id="item.id" :data-count="item.count">删除</button>
            </div>  
-            
+     
         </div>
         <div class="total">
             <div class="cot">
@@ -29,7 +31,9 @@
                </div>
             </div>
             <div class="price">
-              <div class="total_price">总价￥{{total.toFixed(2)}}</div>
+              <div class="total_price" v-if="displayMoney=true">总价￥{{total.toFixed(2)}}
+                  </div>
+			 <div class="total_price" v-else-if="displayMoney=false">0</div>
               <button class="pay" @click="toPay">去结算</button>
             </div>
         </div>
@@ -42,10 +46,45 @@ export default {
     data(){
         return{
             list:[],
-            total:0  
+            total:0 ,
+            allChecked:false, 
+            // 控制总价一栏是否显示标记
+            displayMoney:false,
+            
+            checked:true
         }
     },
     methods:{
+        // 实现选中全选/取消全选
+        checkAll(e){
+             //全选
+				if(this.allChecked==false) {
+                    this.total=0;
+                    this.allChecked==true;
+                    for(var i=0;i<this.list.length;i++){
+                        var item = this.list[i];
+                        item.cb = true;   
+                        this.total+=item.price*item.count;                    
+                    }                  
+				}else if(this.allChecked==true)  {
+                    this.allChecked=false;
+                    for(var i=0;i<this.list.length;i++){
+                        var item = this.list[i];
+                        item.cb =false;
+                        this.total=0;
+                    }     
+                }
+                
+        },
+       checkChild(e){
+           e.stopPropagation;
+           if(e.target.checked==false){
+               this.allChecked=false;  
+              this.total-=e.target.dataset.price*  e.target.dataset.count;
+           }else{
+               this.total+=e.target.dataset.price*  e.target.dataset.count;
+           }
+       },
         // 结算
         toPay(){
           this.$router.push("/toPay")
@@ -111,7 +150,6 @@ export default {
        
         this.axios.get(url).then(result=>{
             if(result.data.code==-1){
-               this.$messagebox("请登录")
                 this.$router.push("/Login");
                 return;
             } 
@@ -125,12 +163,13 @@ export default {
                 // 修改共享购物车中数量值
                 // this.$store.commit("increment");
                 this.$store.commit('addductio', item.count)
-                this.total+=item.price*item.count;
             }
             // 保存购物车数据
             this.list=list;
             // console.log(list)
-           
+        //    if(item.cb==true){
+        //         this.total+=item.price*item.count;
+        //    }
         })
         }
     },
