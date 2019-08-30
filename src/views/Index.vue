@@ -1,13 +1,13 @@
 <template>
-    <div class="container">
-        
-       <main id="main" >
-          <my-header></my-header>
-           <carousel/> 
-           <floor v-for="(item,i) of result" :key="i" :messages="result"></floor>
-              
+    <div >
+      <my-header></my-header>
+           <carousel/>   
+       <main id="main" class="container">
+          
+           <floor  v-for="(item,i) of result" :key="i" :messages="result"></floor>
+            
        </main>
-       <my-footer/>
+      <my-footer/>   
       
     </div>
 </template>

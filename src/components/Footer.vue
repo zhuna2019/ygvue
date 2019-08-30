@@ -1,5 +1,5 @@
 <template>
-    <footer class="container">
+    <footer class="">
         <!-- 页尾全球精选 -->
        <div class="row footer_1f mt-5">
            <div class="col">

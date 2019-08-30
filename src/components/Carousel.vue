@@ -4,11 +4,11 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="../../public/imgs/img/index/ad2.jpg" alt="First slide">
+            <img class="d-block w-100" src="http://img05.yiguoimg.com/d/others/190830/9288738997806878.jpg" alt="First slide">
           </div>
           
           <div class="carousel-item">
-            <img class="d-block w-100" src="../../public/imgs/img/index/ad3.jpg" alt="4th slide">
+            <img class="d-block w-100" src="http://img05.yiguoimg.com/d/others/190830/9288738997806878.jpg" alt="4th slide">
           </div>
         </div>
          <!-- 轮播指示器 -->

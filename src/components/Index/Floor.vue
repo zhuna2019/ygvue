@@ -1,23 +1,11 @@
 <template>
 <div class=" rows">
     <div class="left_step ">
-            <div class="title" >礼品礼券<span>/ GIFT COUPONS</span></div>
-            <div><img src="../../../public/imgs/img/index/gift_banner.png" alt=""></div>    
+            <div class="title" >进口水果<span>/ GIFT COUPONS</span></div>
+            <div><img src="../../../public/imgs/img/index/9288735686141330.jpg" alt=""></div>    
     </div>
     <div class="flool ">
-        <!-- 面包屑导航 -->
-        <div class="bread">
-            <el-breadcrumb separator="|">
-              
-              <el-breadcrumb-item>礼卡礼券</el-breadcrumb-item>
-              <el-breadcrumb-item>节日礼盒</el-breadcrumb-item>
-              <el-breadcrumb-item>员工福利</el-breadcrumb-item>
-              <el-breadcrumb-item>商务赠礼</el-breadcrumb-item>
-              <el-breadcrumb-item>走亲访友</el-breadcrumb-item>
-              <el-breadcrumb-item>生日礼盒</el-breadcrumb-item>
-              <el-breadcrumb-item>伴手礼</el-breadcrumb-item>
-            </el-breadcrumb>
-        </div>
+        
         <!-- 商品列表 -->
         <div class="details">
             <item  v-for="(item,i) of messages" :key="i" :item="item" ></item>

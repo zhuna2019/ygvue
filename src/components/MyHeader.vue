@@ -85,7 +85,7 @@
     width:100%;
     height:2rem;
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     
    
@@ -93,6 +93,7 @@
 .header>.topTool>.t_left{
     font-size:12px;
     color:#666;
+    margin-right:20%;
 }
 .nav{
     align-items: center;
@@ -126,14 +127,14 @@
     align-items: center;
     height:90px;
     background:#eee;
-    
+   justify-content:center ;
    
  
 }
 .header>.topHead>.log{
     width:50px;
     height:50px;
-     
+    margin-left:2%;
     
 }
 .header>.topHead>.search{
@@ -161,12 +162,8 @@
     font-size:12px;
 }
 .header>.topHead>.cart{
-    margin-left:50px;
     width:100px;
-    height:50px;
-    
-  
-   
+    height:50px; 
 }
 </style>
 <script>

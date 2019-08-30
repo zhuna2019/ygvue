@@ -17,6 +17,9 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 //  把加入购物车部分做成全局组件
  import AddCart from  './components/AddCart'
  Vue.component("my-add",AddCart);
+//把随机验证码做成全局组件
+import RandomCode from './views/RandomCode'
+Vue.component("random-code",RandomCode);
  //  把页面头部公用区域做成全局组件
 import MyHeader from  './components/MyHeader'
 Vue.component("my-header",MyHeader);

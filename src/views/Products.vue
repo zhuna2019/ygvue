@@ -1,8 +1,8 @@
 <template>
     <div>
-       
+        <my-header></my-header>
         <div id="main" class="container">
-            <my-header></my-header>
+           
             <ul class="bar">
                 <li><!-- 左侧导航栏 -->
                  <div id="sideBar">
@@ -90,9 +90,9 @@
                  :total="total">
                </el-pagination>
             </div>
-             <my-footer/>
+            
         </div>
-        
+         <my-footer/>
     </div>
 </template>
 <script>
